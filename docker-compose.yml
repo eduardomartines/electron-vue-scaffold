@@ -1,0 +1,16 @@
+version: "3.7"
+services:
+  app:
+    image: emartines/restaurant-app
+    build:
+      context: .
+    ports:
+      - "9080:9080"
+    volumes:
+      - .:/usr/app/
+      - /usr/app/node_modules
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - /dev/snd:/dev/snd
+    privileged: true
+    environment:
+      - DISPLAY=:0
